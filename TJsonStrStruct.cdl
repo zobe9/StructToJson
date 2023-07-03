@@ -1,0 +1,68 @@
+struct TJsonStrGuildStruct
+{
+    0 int lastLoginDate;
+    1 DictIntInt moduleLevel;
+    2 int conApplyLevel;
+    3 long conApplyWarfare;
+    4 byte conEnterCondition;
+    5 int orderCounter; //订单计数
+};
+
+struct TJsonStrGuildOrderInfo
+{
+    0 int itemCode;
+    1 int needNum;
+    2 int curNum;
+    3 int cfgId;
+};
+
+struct TJsonStrGuildOrderAssistedInfo
+{
+    0 long playerId;
+    1 long timeSec;   //协助时间
+    2 DictIntInt items;//协助道具
+    3 int counter;    //后端生成id
+    4 bool state;     //当前是否处理
+    5 int ownGold;    //获得元宝数
+};
+
+struct TJsonStrGuildOrderStruct
+{
+    0 sequence<TJsonStrGuildOrderInfo> orderInfo;
+    1 sequence<TJsonStrGuildOrderAssistedInfo> assistedInfo;
+};
+
+struct TJsonStrMarketDiscountInfo
+{
+    0 int timeHour;
+    1 int value;  
+};
+
+struct TJsonStrMarketDiscountStruct
+{
+    0 sequence<TJsonStrMarketDiscountInfo> marketDiscountMap;
+};
+
+struct TJsonOpenServerRankInfo
+{
+    0 long value;     //排行数值
+    1 long updateDt; //最近更新时间
+};
+
+struct TJsonOpenServerRankStruct
+{
+    0 std::map<int,TJsonOpenServerRankInfo> openServerRank; //key:rankType
+};
+
+struct TJsonAdventureEvent
+{
+	0 int eventId;
+	1 int eventStatus;
+	2 int endDt;
+    3 int code;
+};
+
+struct TJsonAdventureEventStruct
+{
+    0 std::map<string,TJsonAdventureEvent> evenInfo;
+};
